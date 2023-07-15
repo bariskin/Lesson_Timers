@@ -88,7 +88,8 @@ int main(void)
   MX_TIM10_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim10);
+  HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_1);
+  HAL_TIMEx_OCN_Start_IT(&htim1, TIM_CHANNEL_1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -160,6 +161,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
           HAL_GPIO_TogglePin(GPIOA, LED_1_Pin);  
         }
 }
+
+void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
+{
+        if(htim->Instance == TIM1)
+        {
+				HAL_GPIO_TogglePin(GPIOA, LED_2_Pin);  
+        }
+}
+
 
 /* USER CODE END 4 */
 

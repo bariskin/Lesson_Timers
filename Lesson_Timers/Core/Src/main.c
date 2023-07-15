@@ -88,12 +88,9 @@ int main(void)
   MX_TIM10_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim10);
+  HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_1);
+  HAL_TIMEx_OCN_Start_IT(&htim1, TIM_CHANNEL_1);
   /* USER CODE END 2 */
-	/* USER CODE BEGIN 2 */
-   HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_1); // event
-  //HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_1); // no event
-/* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
