@@ -6,6 +6,11 @@
 *.ko
 *.obj
 *.elf
+Lesson_Timers/MDK-ARM/Lesson_Timers.uvoptx
+Lesson_Timers/MDK-ARM/Lesson_Timers.uvprojx
+Lesson_Timers/MDK-ARM/Lesson_Timers.uvguix.chiur
+Lesson_Timers/MDK-ARM/Lesson_Timers/
+Lesson_Timers/MDK-ARM/startup_stm32f407xx.lst
 
 # Linker output
 *.ilk
