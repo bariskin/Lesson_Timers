@@ -90,6 +90,10 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim10);
   /* USER CODE END 2 */
+	/* USER CODE BEGIN 2 */
+   HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_1); // event
+  //HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_1); // no event
+/* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -160,6 +164,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
           HAL_GPIO_TogglePin(GPIOA, LED_1_Pin);  
         }
 }
+
+void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
+{
+        if(htim->Instance == TIM1)
+        {
+				HAL_GPIO_TogglePin(GPIOA, LED_2_Pin);  
+        }
+}
+
 
 /* USER CODE END 4 */
 
