@@ -85,13 +85,16 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_TIM10_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-  //HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_1);
- // HAL_TIMEx_OCN_Start_IT(&htim1, TIM_CHANNEL_1);
+  // HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_1);
+  // HAL_TIMEx_OCN_Start_IT(&htim1, TIM_CHANNEL_1);
+	//HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_1);
+	
  
- HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_1);
+  HAL_TIM_Base_Start_IT(&htim1);
+	
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -99,9 +102,8 @@ int main(void)
   while (1)
   {
 			HAL_GPIO_WritePin(OUTPUT_FOR_ETR2_GPIO_Port, OUTPUT_FOR_ETR2_Pin, GPIO_PIN_SET);
-			HAL_Delay(250);
+			HAL_Delay(200);
 			HAL_GPIO_WritePin(OUTPUT_FOR_ETR2_GPIO_Port, OUTPUT_FOR_ETR2_Pin, GPIO_PIN_RESET);
-			HAL_Delay(250);
 
     /* USER CODE END WHILE */
 
@@ -156,21 +158,22 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-        if(htim->Instance == TIM10) //check if the interrupt comes from TIM10
+        if(htim->Instance == TIM1) //check if the interrupt comes from TIM10
         {
           HAL_GPIO_TogglePin(GPIOA, LED_1_Pin);  
         }
 }
 
-void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
-{
-        if(htim->Instance == TIM1)
-        {
-				HAL_GPIO_TogglePin(GPIOA, LED_2_Pin);  
-        }
-}
+//void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
+//{
+//        if(htim->Instance == TIM1)
+//        {
+//				 HAL_GPIO_TogglePin(GPIOA, LED_2_Pin);  
+//        }
+//}
 
 
 /* USER CODE END 4 */
