@@ -147,6 +147,13 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+        if(htim->Instance == TIM10) //check if the interrupt comes from TIM10
+        {
+          HAL_GPIO_TogglePin(GPIOA, LED_1_Pin);  
+        }
+}
 
 /* USER CODE END 4 */
 
