@@ -88,8 +88,10 @@ int main(void)
   MX_TIM10_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_1);
-  HAL_TIMEx_OCN_Start_IT(&htim1, TIM_CHANNEL_1);
+  //HAL_TIM_OC_Start_IT(&htim1, TIM_CHANNEL_1);
+ // HAL_TIMEx_OCN_Start_IT(&htim1, TIM_CHANNEL_1);
+ 
+ HAL_TIM_PWM_Start_IT(&htim1, TIM_CHANNEL_1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
