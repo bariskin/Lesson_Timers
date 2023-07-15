@@ -1,0 +1,27 @@
+--cpu=Cortex-M4.fp.sp
+"lesson_timers\startup_stm32f407xx.o"
+"lesson_timers\main.o"
+"lesson_timers\gpio.o"
+"lesson_timers\tim.o"
+"lesson_timers\stm32f4xx_it.o"
+"lesson_timers\stm32f4xx_hal_msp.o"
+"lesson_timers\stm32f4xx_hal_tim.o"
+"lesson_timers\stm32f4xx_hal_tim_ex.o"
+"lesson_timers\stm32f4xx_hal_rcc.o"
+"lesson_timers\stm32f4xx_hal_rcc_ex.o"
+"lesson_timers\stm32f4xx_hal_flash.o"
+"lesson_timers\stm32f4xx_hal_flash_ex.o"
+"lesson_timers\stm32f4xx_hal_flash_ramfunc.o"
+"lesson_timers\stm32f4xx_hal_gpio.o"
+"lesson_timers\stm32f4xx_hal_dma_ex.o"
+"lesson_timers\stm32f4xx_hal_dma.o"
+"lesson_timers\stm32f4xx_hal_pwr.o"
+"lesson_timers\stm32f4xx_hal_pwr_ex.o"
+"lesson_timers\stm32f4xx_hal_cortex.o"
+"lesson_timers\stm32f4xx_hal.o"
+"lesson_timers\stm32f4xx_hal_exti.o"
+"lesson_timers\system_stm32f4xx.o"
+--strict --scatter "Lesson_Timers\Lesson_Timers.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Lesson_Timers.map" -o Lesson_Timers\Lesson_Timers.axf

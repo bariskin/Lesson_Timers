@@ -7,7 +7,7 @@
 *.obj
 *.elf
 
-Lesson_Timers/MDK-ARM/Lesson_Timers/
+Lesson_Timers/MDK-ARM/Lesson_Timers/*.obj
 # Linker output
 *.ilk
 *.map
